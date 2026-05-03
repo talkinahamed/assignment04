@@ -172,9 +172,40 @@
 
             container.innerHTML = ''
 
+
+            if (jobList.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full flex flex-col items-center justify-center py-20 bg-white rounded-2xl border-2 border-dashed border-blue-100 shadow-sm">
+                        <img src="/Assets/jobs.png" alt=""> <br>
+                        <h2 class="text-2xl font-bold text-sky-900">No jobs available</h2>
+                        <p class="text-sky-900/60">Check back soon for new job opportunities</p>
+                    </div>`
+                return;
+            }
+
+
             for (const card of jobList) {
 
                 const cards = document.createElement('div')
+
+
+                let stateBg = 'text-sky-900/80 bg-blue-200'
+                let interFill = 'bg-green-200 text-green-900/80'
+                let rejectFill = 'bg-red-200 text-red-900/80'
+
+
+                if (card.State == "INTERVIEW") {
+
+                    stateBg = 'text-green-900/80 bg-green-200 text-green-900/80'
+                    interFill = 'bg-green-600 text-white'
+                }
+                else if (card.State == "REJECTED") {
+                    stateBg = 'text-red-900/80 bg-red-200 text-red-900/80'
+                    rejectFill = 'bg-red-600 text-white'
+                }
+                else {
+                    stateBg = stateBg
+                }
 
 
                 cards.innerHTML
