@@ -165,4 +165,68 @@
         ]
 
 
+        function renderJobs(jobList) {
+
+
+            const container = document.getElementById('Container')
+
+            container.innerHTML = ''
+
+            for (const card of jobList) {
+
+                const cards = document.createElement('div')
+
+
+                cards.innerHTML
+                    =
+                    `<div class="relative rounded-2xl border border-blue-400/50 border-[3px]rounded-lg bg-base-200 p-[30px]">
+
+                    <button onclick="delBtn(${card.Count})" class="absolute right-5 z-10 hover:text-red-400 text-gray-400 transition-all active:scale-70"><i class="fa-solid fa-trash"></i></button>
+                    
+                    <h1 class="text-xl font-semibold text-sky-900">${card.Name}</h1> 
+
+                    <p class="text-sm font-neutral text-sky-900/80 pb-1">${card.Title}</p> 
+
+                    <div class='gap-4 flex'>
+                        <p class="py-1 px-3 rounded-lg bg-blue-200  text-[10px] font-neutral text-sky-900/60">${card.Location}</p> <span class="text-sky-800/70 ">•</span>
+
+                        <p class="py-1 px-3 rounded-lg bg-blue-200  text-[10px] font-neutral text-sky-900/60">${card.Time}</p> <span class="text-sky-800/70 ">•</span>
+
+                        <p class="py-1 px-3 rounded-lg bg-blue-200  text-[10px] font-neutral text-sky-900">${card.Salary}</p>
+
+                    </div> <br>
+
+                    <h1 class=" max-w-23 py-1 px-3 rounded-lg bg-blue-200 text-[11px] text-neutral uppercase mb-1 text-center ${stateBg}">${card.State}</h1>
+
+                    <p class="font-normal text-[13px] text-sky-900/90">${card.Description}</p>
+
+                    <div class="flex gap-4 pt-4">
+
+
+                        <button onclick="changeState(${card.Count},'INTERVIEW')" class="${interFill} max-w-26 py-1 px-3 rounded-lg  text-[13px]  uppercase font-medium border border-[1px] border-green-700/60">INTERVIEW</button>
+                        
+
+                        <button onclick="changeState(${card.Count},'REJECTED')" class="${rejectFill} max-w-26 py-1 px-3 rounded-lg  text-[13px]  uppercase font-medium border border-[1px] border-red-700/60">REJECTED</button>
+                        
+                        
+                        
+                        </div>
+
+
+
+                </div>`
+
+
+                container.appendChild(cards)
+
+            };
+
+
+
+        }
+
+
+        renderJobs(jobArray)
+
+
     </script>
