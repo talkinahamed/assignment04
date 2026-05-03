@@ -225,6 +225,20 @@
 
         }
 
+        function counter() {
+
+            let totalCount = jobArray.length
+            let interviewCount = jobArray.filter(job => job.State === 'INTERVIEW').length
+            let rejectCount = jobArray.filter(job => job.State === 'REJECTED').length
+
+            document.getElementById('total-count').innerHTML = totalCount
+            document.getElementById('interview-count').innerHTML = interviewCount
+            document.getElementById('reject-count').innerHTML = rejectCount
+
+
+
+        }
+
 
         renderJobs(jobArray)
 
