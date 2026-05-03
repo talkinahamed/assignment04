@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Tracker</title>
+
+    <!-- font Awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- favIcon  -->
+    <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon" />
+
+    <!-- tailwind and daisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+</head>
+
+<body class="max-w-[1000px] mx-auto p-[40px] bg-slate-200">
+
+    <h1 class=" text-4xl text-sky-900 font-bold">Job Application Tracker</h1> <br>
+
+    <div class="counter grid grid-cols-3 gap-6">
+        <div class="Total p-[20px] shadow-md rounded-lg bg-base-200">
+            <h1 class="text-xl  text-sky-900 font-semibold">Total</h1> <br>
+            <p id="total-count" class="font-bold text-sky-900 text-3xl">0</p>
+        </div>
+        <div class="Total p-[20px] shadow-md rounded-lg bg-base-200">
+            <h1 class="font-semibold text-xl  text-sky-900">Interview</h1> <br>
+            <p id="interview-count" class="font-bold text-green-500 text-3xl ">0</p>
+        </div>
+        <div class="Total p-[20px] shadow-md rounded-lg bg-base-200">
+            <h1 class=" font-semibold text-xl  text-sky-900">Rejected</h1> <br>
+            <p id="reject-count" class="font-bold text-red-500 text-3xl">0</p>
+        </div>
+    </div>
+
+    <div class="flex justify-between items-center pt-4">
+        <h1 class="font-semibold text-xl text-sky-900">Available Jobs</h1>
+        <span id="tab-count" class="text-sky-900/90 text-sm">8 jobs</span>
+    </div>
+
+    <div class="max-w-[270px] grid grid-cols-3 pt-6">
+
+
+        <button id="all-btn"
+            class="tab-button active-tab  py-2 bg-base-200 text-center bg-base-200 rounded-md text-sky-900"
+            onclick="filterTab('ALL','all-btn')">All</button>
+
+
+
+        <button id="interview-btn" class="tab-button py-2 bg-base-200 text-center bg-base-200 rounded-md text-sky-900"
+            onclick="filterTab('INTERVIEW','interview-btn')">Interview</button>
+
+
+
+
+        <button id="reject-btn" class=" tab-button py-2 bg-base-200 text-center bg-base-200 rounded-md text-sky-900"
+            onclick="filterTab('REJECTED','reject-btn')">Rejected</button>
+
+
+    </div> <br>
+
+    <div id="Container" class="max-w-[1000px] flex flex-col gap-4"></div>
