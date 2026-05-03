@@ -268,7 +268,48 @@
 
 
 
+
+        function filterTab(status, targetId) {
+
+
+            const allTabButton = document.querySelectorAll('.tab-button')
+
+            for (const button of allTabButton) {
+
+                button.classList.remove('bg-blue-500', 'text-white')
+
+
+            }
+            const targetBtn = document.getElementById(targetId)
+
+            targetBtn.classList.add('bg-blue-500', 'text-white')
+
+
+            if (status === 'ALL') {
+
+                renderJobs(jobArray)
+
+
+                document.getElementById('tab-count').innerHTML = `${jobArray.length} jobs`
+            }
+            else {
+                const filteredJobs = jobArray.filter(job => job.State === status)
+
+                renderJobs(filteredJobs)
+
+
+                document.getElementById('tab-count').innerHTML = `${filteredJobs.length} jobs`
+
+            }
+        }
+
+
+
+
         renderJobs(jobArray)
+        counter()
+
+        document.getElementById('tab-count').innerHTML = `${jobArray.length} jobs`
 
 
     </script>
