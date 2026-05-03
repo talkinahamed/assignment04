@@ -239,6 +239,34 @@
 
         }
 
+        function changeState(count, newState) {
+
+
+            for (const job of jobArray) {
+
+                if (job.Count === count) {
+
+                    if (job.State === newState) {
+
+                        job.State = 'Not Applied'
+                    }
+                    else {
+
+                        job.State = newState
+
+                    }
+                }
+            }
+
+            renderJobs(jobArray)
+
+            counter()
+
+            document.getElementById('tab-count').innerHTML = `${jobArray.length} jobs`
+
+        }
+
+
 
         renderJobs(jobArray)
 
