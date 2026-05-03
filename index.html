@@ -304,6 +304,21 @@
         }
 
 
+        function delBtn(count) {
+
+            jobArray = jobArray.filter(job => job.Count !== count)
+
+            renderJobs(jobArray)
+
+            counter()
+
+
+
+            document.getElementById('tab-count').innerHTML = `${jobArray.length} jobs`
+
+        }
+
+
 
 
         renderJobs(jobArray)
